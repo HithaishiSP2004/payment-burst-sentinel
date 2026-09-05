@@ -1,0 +1,24 @@
+{
+  "input": "Processed parquet files from Phase 1",
+  "grouping": "Per-merchant",
+  "temporal_context": "Daily aggregation",
+  "observation_window": "1d",
+  "baseline_approach": "Rolling window recommended; moderate variation over time",
+  "core_signals": [
+    "transaction_velocity",
+    "total_amount"
+  ],
+  "supporting_signals": [
+    "avg_amount",
+    "amount_std",
+    "hour_of_day",
+    "day_of_week",
+    "unique_cardholders",
+    "category_diversity",
+    "temporal_concentration"
+  ],
+  "excluded_signals": [],
+  "output": "Per-merchant expected behavioral ranges for each signal",
+  "evaluation_strategy": "Window-level evaluation possible: define suspicious windows as those with fraud concentration above merchant baseline fraud rate. Sufficient fraud-containing windows exist for held-out evaluation.",
+  "limitations": "Transaction-level fraud labels do not directly equal burst labels. A window containing fraud transactions is not necessarily a 'burst'. Our evaluation measures whether behavioral anomalies correlate with fraud-containing periods, not whether every flagged burst is an attack."
+}

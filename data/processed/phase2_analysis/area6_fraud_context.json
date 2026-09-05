@@ -1,0 +1,33 @@
+{
+  "merchant_fraud_distribution": {
+    "merchants_with_fraud": 679,
+    "merchants_without_fraud": 14,
+    "avg_merchant_fraud_rate": 0.5603,
+    "max_merchant_fraud_rate": 2.57,
+    "fraud_rate_std": 0.5553
+  },
+  "temporal_fraud": {
+    "avg_daily_fraud": 14.0,
+    "daily_fraud_std": 9.7,
+    "daily_fraud_rate_cv": 0.75
+  },
+  "fraud_during_anomalies": {
+    "high_activity_days": 25663,
+    "normal_days": 316339,
+    "fraud_rate_during_high_activity": 0.4635,
+    "fraud_rate_during_normal": 0.6047,
+    "ratio": 0.77
+  },
+  "evaluation_feasibility": {
+    "total_hourly_windows": 1120613,
+    "windows_with_any_fraud": 7444,
+    "windows_with_high_fraud_rate": 7444,
+    "pct_with_any_fraud": 0.66,
+    "pct_with_high_fraud": 0.664
+  },
+  "conclusion": {
+    "labels_usable": true,
+    "strategy": "Window-level evaluation possible: define suspicious windows as those with fraud concentration above merchant baseline fraud rate. Sufficient fraud-containing windows exist for held-out evaluation.",
+    "honest_limitation": "Transaction-level fraud labels do not directly equal burst labels. A window containing fraud transactions is not necessarily a 'burst'. Our evaluation measures whether behavioral anomalies correlate with fraud-containing periods, not whether every flagged burst is an attack."
+  }
+}

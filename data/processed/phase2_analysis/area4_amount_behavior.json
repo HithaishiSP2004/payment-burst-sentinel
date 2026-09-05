@@ -1,0 +1,34 @@
+{
+  "overall_amount": {
+    "mean": 70.35,
+    "median": 47.52,
+    "std": 160.32,
+    "p5": 2.44,
+    "p95": 196.31,
+    "max": 28948.9
+  },
+  "fraud_vs_legit_amount": {
+    "fraud_mean": 531.32,
+    "fraud_median": 396.5,
+    "legit_mean": 67.67,
+    "legit_median": 47.28,
+    "mean_ratio": 7.85
+  },
+  "merchant_amount_variability": {
+    "avg_cv": 1.538,
+    "median_cv": 0.979
+  },
+  "amount_during_high_activity": {
+    "avg_amount_ratio_high_vs_normal": 0.993,
+    "merchants_sampled": 50
+  },
+  "ks_test_fraud_vs_legit": {
+    "ks_statistic": 0.7266,
+    "p_value": 0.0,
+    "distributions_differ": "True"
+  },
+  "conclusion": {
+    "amount_is_useful_signal": true,
+    "reason": "Fraud amounts differ significantly from legitimate"
+  }
+}

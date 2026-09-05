@@ -1,0 +1,84 @@
+{
+  "dataset_name": "test",
+  "total_rows": 555719,
+  "total_columns": 15,
+  "columns": [
+    "trans_date_trans_time",
+    "unix_time",
+    "merchant",
+    "amt",
+    "is_fraud",
+    "category",
+    "cc_num",
+    "lat",
+    "long",
+    "state",
+    "merch_lat",
+    "merch_long",
+    "hour",
+    "day_of_week",
+    "date"
+  ],
+  "missing_values": {},
+  "has_missing": false,
+  "dtypes": {
+    "trans_date_trans_time": "datetime64[us]",
+    "unix_time": "int64",
+    "merchant": "str",
+    "amt": "float64",
+    "is_fraud": "int64",
+    "category": "str",
+    "cc_num": "int64",
+    "lat": "float64",
+    "long": "float64",
+    "state": "str",
+    "merch_lat": "float64",
+    "merch_long": "float64",
+    "hour": "int32",
+    "day_of_week": "int32",
+    "date": "object"
+  },
+  "amount": {
+    "min": 1.0,
+    "max": 22768.11,
+    "mean": 69.3928102332294,
+    "median": 47.29,
+    "std": 156.74594135531504
+  },
+  "class_balance": {
+    "legitimate": 553574,
+    "fraud": 2145,
+    "fraud_rate_pct": 0.386
+  },
+  "time_range": {
+    "start": "2020-06-21 12:14:25",
+    "end": "2020-12-31 23:59:34",
+    "duration_days": 193
+  },
+  "merchants": {
+    "unique_count": 693,
+    "min_tx_per_merchant": 304,
+    "max_tx_per_merchant": 1859,
+    "mean_tx_per_merchant": 801.9,
+    "median_tx_per_merchant": 804
+  },
+  "categories": {
+    "unique_count": 14,
+    "distribution": {
+      "gas_transport": 56370,
+      "grocery_pos": 52553,
+      "home": 52345,
+      "shopping_pos": 49791,
+      "kids_pets": 48692,
+      "shopping_net": 41779,
+      "entertainment": 40104,
+      "personal_care": 39327,
+      "food_dining": 39268,
+      "health_fitness": 36674,
+      "misc_pos": 34574,
+      "misc_net": 27367,
+      "grocery_net": 19426,
+      "travel": 17449
+    }
+  }
+}

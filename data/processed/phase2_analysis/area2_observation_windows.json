@@ -1,0 +1,51 @@
+{
+  "1h": {
+    "total_windows": 1120613,
+    "tx_per_window": {
+      "mean": 1.16,
+      "median": 1.0,
+      "p5": 1.0,
+      "p25": 1.0,
+      "p75": 1.0,
+      "p95": 2.0,
+      "max": 7.0
+    },
+    "windows_with_1_tx_pct": 86.2,
+    "windows_with_fraud": 7444,
+    "pct_windows_with_fraud": 0.66
+  },
+  "4h": {
+    "total_windows": 784962,
+    "tx_per_window": {
+      "mean": 1.65,
+      "median": 1.0,
+      "p5": 1.0,
+      "p25": 1.0,
+      "p75": 2.0,
+      "p95": 4.0,
+      "max": 13.0
+    },
+    "windows_with_1_tx_pct": 58.9,
+    "windows_with_fraud": 7371,
+    "pct_windows_with_fraud": 0.94
+  },
+  "1d": {
+    "total_windows": 342002,
+    "tx_per_window": {
+      "mean": 3.79,
+      "median": 3.0,
+      "p5": 1.0,
+      "p25": 2.0,
+      "p75": 5.0,
+      "p95": 9.0,
+      "max": 31.0
+    },
+    "windows_with_1_tx_pct": 16.8,
+    "windows_with_fraud": 7280,
+    "pct_windows_with_fraud": 2.13
+  },
+  "recommendation": {
+    "window": "1d",
+    "reason": "Daily is the only window with reliable tx counts"
+  }
+}

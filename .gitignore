@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment & Credentials (CRITICAL — NEVER COMMIT)
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# Data — raw source (too large for git)
+data/raw/
+
+# Node
+node_modules/
+
+# Coverage & build artifacts
+coverage/
+.next/
+out/
+
+# Temporary & Local
+*.log
+.gemini/
+design_reference/
+AGENTS.md
+CLAUDE.md
+frontend/AGENTS.md
+frontend/CLAUDE.md
+
+# Internal Hackathon Planning & Prompt Dumps (Clean Public Submission)
+[Pp][Hh][Aa][Ss][Ee]*.md
+[Cc][Oo][Nn][Ss][Tt][Ii][Tt][Uu][Tt][Ii][Oo][Nn]*.md
+[Ff][Ii][Nn][Aa][Ll]*[Ww][Aa][Rr]*.md
+PAYMENT BURST SENTINEL.md
+walkthrough.md
+implementation-plan-changes.md
+need-to-know/

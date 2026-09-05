@@ -1,0 +1,206 @@
+{
+  "method": "Two-signal behavioral deviation (velocity + amount)",
+  "deviation_formula": "max(0, (observed - expected) / variability)",
+  "variability_type": "MAD with safety floor (from Phase 3)",
+  "composite_method": "max(velocity_deviation, amount_deviation)",
+  "directionality": "Only positive deviations (upward) create burst risk",
+  "elevated_threshold": 4.0,
+  "high_threshold": 5.0,
+  "threshold_source": "Training data deviation distribution analysis",
+  "risk_levels": [
+    "normal",
+    "elevated",
+    "high"
+  ],
+  "anomaly_types": [
+    "normal",
+    "velocity_anomaly",
+    "amount_anomaly",
+    "combined_anomaly"
+  ],
+  "alert_distribution": {
+    "normal": 294486,
+    "velocity_anomaly": 10354,
+    "amount_anomaly": 24156,
+    "combined_anomaly": 8155
+  },
+  "risk_distribution": {
+    "normal": 294486,
+    "elevated": 12825,
+    "high": 29840
+  },
+  "deviation_distributions": {
+    "total_sufficient_rows": 337151,
+    "velocity": {
+      "total_positive": 143249,
+      "pct_positive": 42.49,
+      "percentiles": {
+        "p50": 1.5,
+        "p75": 3.0,
+        "p90": 4.0,
+        "p95": 5.0,
+        "p99": 7.0,
+        "max": 20.0
+      }
+    },
+    "amount": {
+      "total_positive": 170929,
+      "pct_positive": 50.7,
+      "percentiles": {
+        "p50": 1.51,
+        "p75": 3.2,
+        "p90": 6.5,
+        "p95": 11.85,
+        "p99": 53.3,
+        "max": 2895.52
+      }
+    },
+    "threshold_analysis": {
+      "1.0": {
+        "velocity_only": 44871,
+        "amount_only": 28692,
+        "combined": 78886,
+        "total_flagged": 152449,
+        "pct_flagged": 45.217,
+        "daily_avg_alerts": 313.35
+      },
+      "2.0": {
+        "velocity_only": 29752,
+        "amount_only": 30422,
+        "combined": 38673,
+        "total_flagged": 98847,
+        "pct_flagged": 29.318,
+        "daily_avg_alerts": 203.18
+      },
+      "3.0": {
+        "velocity_only": 18193,
+        "amount_only": 27925,
+        "combined": 18068,
+        "total_flagged": 64186,
+        "pct_flagged": 19.038,
+        "daily_avg_alerts": 131.93
+      },
+      "4.0": {
+        "velocity_only": 10354,
+        "amount_only": 24156,
+        "combined": 8155,
+        "total_flagged": 42665,
+        "pct_flagged": 12.655,
+        "daily_avg_alerts": 87.7
+      },
+      "5.0": {
+        "velocity_only": 5709,
+        "amount_only": 20590,
+        "combined": 3541,
+        "total_flagged": 29840,
+        "pct_flagged": 8.851,
+        "daily_avg_alerts": 61.33
+      }
+    }
+  },
+  "representative_evidence": {
+    "NORMAL": {
+      "merchant": "Swift PLC",
+      "date": "2019-06-04",
+      "risk_level": "normal",
+      "anomaly_type": "normal",
+      "statements": [
+        "Activity was within the expected behavioral range for this merchant."
+      ],
+      "signals": {},
+      "context": {
+        "day_of_week": 1,
+        "historical_days_used": 29,
+        "baseline_window": 30
+      }
+    },
+    "VELOCITY ANOMALY": {
+      "merchant": "Kuhn Group",
+      "date": "2019-12-02",
+      "risk_level": "elevated",
+      "anomaly_type": "velocity_anomaly",
+      "statements": [
+        "Daily transaction count (7) was substantially above this merchant's recent historical range (expected ~3.0, variability +/-1.0).",
+        "Total payment value ($431.36) was significantly above the expected range (expected ~$156.20, variability +/-$80.40)."
+      ],
+      "signals": {
+        "velocity": {
+          "observed": 7,
+          "expected": 3.0,
+          "variability": 1.0,
+          "deviation": 4.0
+        },
+        "amount": {
+          "observed": 431.36,
+          "expected": 156.2,
+          "variability": 80.4,
+          "deviation": 3.42
+        }
+      },
+      "context": {
+        "day_of_week": 0,
+        "historical_days_used": 30,
+        "baseline_window": 30
+      }
+    },
+    "AMOUNT ANOMALY": {
+      "merchant": "Klocko LLC",
+      "date": "2019-11-09",
+      "risk_level": "high",
+      "anomaly_type": "amount_anomaly",
+      "statements": [
+        "Daily transaction count (3) was above this merchant's expected level of ~2.0.",
+        "Total payment value ($875.77) was significantly above the expected range (expected ~$120.75, variability +/-$104.48)."
+      ],
+      "signals": {
+        "velocity": {
+          "observed": 3,
+          "expected": 2.0,
+          "variability": 1.0,
+          "deviation": 1.0
+        },
+        "amount": {
+          "observed": 875.77,
+          "expected": 120.75,
+          "variability": 104.48,
+          "deviation": 7.23
+        }
+      },
+      "context": {
+        "day_of_week": 5,
+        "historical_days_used": 26,
+        "baseline_window": 30
+      }
+    },
+    "COMBINED ANOMALY": {
+      "merchant": "Schaefer, Maggio and Daugherty",
+      "date": "2020-03-30",
+      "risk_level": "high",
+      "anomaly_type": "combined_anomaly",
+      "statements": [
+        "Daily transaction count (10) was substantially above this merchant's recent historical range (expected ~4.0, variability +/-1.0).",
+        "Total payment value ($724.95) was significantly above the expected range (expected ~$245.14, variability +/-$70.91).",
+        "Both transaction volume and total payment value increased together, suggesting a coordinated behavioral shift."
+      ],
+      "signals": {
+        "velocity": {
+          "observed": 10,
+          "expected": 4.0,
+          "variability": 1.0,
+          "deviation": 6.0
+        },
+        "amount": {
+          "observed": 724.95,
+          "expected": 245.14,
+          "variability": 70.91,
+          "deviation": 6.77
+        }
+      },
+      "context": {
+        "day_of_week": 0,
+        "historical_days_used": 29,
+        "baseline_window": 30
+      }
+    }
+  }
+}

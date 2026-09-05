@@ -1,0 +1,68 @@
+{
+  "daily_activity": {
+    "mean_daily_tx_across_merchants": 3.73,
+    "median_daily_tx": 3.24,
+    "avg_daily_std": 2.23,
+    "avg_coefficient_of_variation": 0.601,
+    "cv_distribution": {
+      "p25": 0.584,
+      "p50": 0.601,
+      "p75": 0.618,
+      "p90": 0.632
+    }
+  },
+  "hourly_activity": {
+    "peak_hour": 23,
+    "peak_pct": 5.18,
+    "trough_hour": 4,
+    "trough_pct": 3.23,
+    "peak_trough_ratio": 1.6,
+    "hourly_distribution": {
+      "0": 3.28,
+      "1": 3.31,
+      "2": 3.29,
+      "3": 3.3,
+      "4": 3.23,
+      "5": 3.25,
+      "6": 3.26,
+      "7": 3.25,
+      "8": 3.28,
+      "9": 3.25,
+      "10": 3.26,
+      "11": 3.25,
+      "12": 5.03,
+      "13": 5.04,
+      "14": 5.0,
+      "15": 5.04,
+      "16": 5.07,
+      "17": 5.05,
+      "18": 5.09,
+      "19": 5.05,
+      "20": 5.02,
+      "21": 5.05,
+      "22": 5.17,
+      "23": 5.18
+    },
+    "merchant_peak_hour_std": 7.3
+  },
+  "day_of_week": {
+    "distribution": {
+      "0": 19.61,
+      "1": 12.36,
+      "2": 10.11,
+      "3": 11.36,
+      "4": 11.74,
+      "5": 15.5,
+      "6": 19.32
+    },
+    "coefficient_of_variation": 0.273,
+    "weekday_vs_weekend": {
+      "weekday_avg_pct": 13.04,
+      "weekend_avg_pct": 17.41
+    }
+  },
+  "rhythm_conclusion": [
+    "Hourly patterns moderate -> simple daily baselines may suffice",
+    "Day-of-week shows some variation -> consider as context"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "merchant_stability": {
+    "low_activity": [
+      {
+        "merchant": "Adams, Kovacek and Kuhlman",
+        "months_active": 18,
+        "tx_count_cv": 0.323,
+        "avg_amount_cv": 0.069
+      },
+      {
+        "merchant": "Ankunding-Carroll",
+        "months_active": 18,
+        "tx_count_cv": 0.304,
+        "avg_amount_cv": 0.776
+      },
+      {
+        "merchant": "Bahringer Group",
+        "months_active": 18,
+        "tx_count_cv": 0.284,
+        "avg_amount_cv": 0.105
+      },
+      {
+        "merchant": "Bahringer, Osinski and Block",
+        "months_active": 18,
+        "tx_count_cv": 0.324,
+        "avg_amount_cv": 0.084
+      },
+      {
+        "merchant": "Bahringer-Larson",
+        "months_active": 18,
+        "tx_count_cv": 0.349,
+        "avg_amount_cv": 0.056
+      }
+    ],
+    "medium_activity": [
+      {
+        "merchant": "Abbott-Rogahn",
+        "months_active": 18,
+        "tx_count_cv": 0.3,
+        "avg_amount_cv": 0.093
+      },
+      {
+        "merchant": "Abbott-Steuber",
+        "months_active": 18,
+        "tx_count_cv": 0.331,
+        "avg_amount_cv": 0.089
+      },
+      {
+        "merchant": "Abernathy and Sons",
+        "months_active": 18,
+        "tx_count_cv": 0.308,
+        "avg_amount_cv": 0.08
+      },
+      {
+        "merchant": "Abshire PLC",
+        "months_active": 18,
+        "tx_count_cv": 0.29,
+        "avg_amount_cv": 0.121
+      },
+      {
+        "merchant": "Adams-Barrows",
+        "months_active": 18,
+        "tx_count_cv": 0.303,
+        "avg_amount_cv": 0.082
+      }
+    ],
+    "high_activity": [
+      {
+        "merchant": "Altenwerth-Kilback",
+        "months_active": 18,
+        "tx_count_cv": 0.292,
+        "avg_amount_cv": 0.085
+      },
+      {
+        "merchant": "Auer-Mosciski",
+        "months_active": 18,
+        "tx_count_cv": 0.266,
+        "avg_amount_cv": 0.028
+      },
+      {
+        "merchant": "Bahringer, Bergnaum and Quitzon",
+        "months_active": 18,
+        "tx_count_cv": 0.312,
+        "avg_amount_cv": 0.087
+      },
+      {
+        "merchant": "Bahringer, Schoen and Corkery",
+        "months_active": 18,
+        "tx_count_cv": 0.293,
+        "avg_amount_cv": 0.28
+      },
+      {
+        "merchant": "Bailey-Morar",
+        "months_active": 18,
+        "tx_count_cv": 0.397,
+        "avg_amount_cv": 0.036
+      }
+    ]
+  },
+  "overall_tx_cv": 0.312,
+  "rolling_vs_global": {
+    "merchant": "Altenwerth-Kilback",
+    "global_mae": 2.1,
+    "rolling_30d_mae": 2.12,
+    "rolling_better": false,
+    "improvement_pct": -0.7
+  },
+  "baseline_recommendation": "Rolling window recommended; moderate variation over time"
+}

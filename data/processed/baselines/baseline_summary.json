@@ -1,0 +1,24 @@
+{
+  "baseline_method": "Rolling 30-day median + MAD (robust)",
+  "rolling_window_days": 30,
+  "minimum_history_days": 7,
+  "zero_variance_handling": "MAD floor = max(MAD, max(base_floor, 0.1 * median))",
+  "temporal_integrity": "Each day uses ONLY prior dates (strictly <)",
+  "total_merchant_day_rows": 342002,
+  "merchants_covered": 693,
+  "date_range": {
+    "start": "2019-01-01",
+    "end": "2020-06-21"
+  },
+  "status_distribution": {
+    "sufficient_history": 337151,
+    "warmup": 4158,
+    "insufficient_history": 693
+  },
+  "sufficient_history_pct": 98.6,
+  "temporal_integrity_validated": true,
+  "core_dimensions": [
+    "transaction_count",
+    "total_amount"
+  ]
+}

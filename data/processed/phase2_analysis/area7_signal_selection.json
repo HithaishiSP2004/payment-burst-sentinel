@@ -1,0 +1,58 @@
+{
+  "signals": {
+    "transaction_velocity": {
+      "decision": "CORE",
+      "reason": "Directly represents burst intensity. Hourly tx count deviation from baseline is the primary burst indicator.",
+      "evidence": "Median hourly tx/window = 1.0"
+    },
+    "total_amount": {
+      "decision": "CORE",
+      "reason": "Fraud amounts differ by 7.85x from legitimate. Adds value context to velocity.",
+      "evidence": "KS test significant: True"
+    },
+    "avg_amount": {
+      "decision": "SUPPORTING",
+      "reason": "Derived from total_amount and tx_count. Useful for detecting unusual per-transaction values but redundant with total_amount as a standalone signal."
+    },
+    "amount_std": {
+      "decision": "SUPPORTING",
+      "reason": "High uniformity of amounts within a burst (low std) may indicate automated activity. Useful but secondary."
+    },
+    "hour_of_day": {
+      "decision": "SUPPORTING",
+      "reason": "Peak/trough ratio is 1.6x. Modest hourly variation; use as context only."
+    },
+    "day_of_week": {
+      "decision": "SUPPORTING",
+      "reason": "Day-of-week CV is 0.273. Some weekday/weekend difference; include as baseline context."
+    },
+    "unique_cardholders": {
+      "decision": "SUPPORTING",
+      "reason": "Fraud windows: 0.998 unique cards/tx vs clean: 1.0. Similar cardholder density."
+    },
+    "category_diversity": {
+      "decision": "SUPPORTING",
+      "reason": "Category distribution shift between fraud/legit: 0.388. Some category shift; may add value."
+    },
+    "temporal_concentration": {
+      "decision": "SUPPORTING",
+      "reason": "Within a burst window, compressed inter-arrival times may indicate automated activity. Worth tracking as secondary signal."
+    }
+  },
+  "summary": {
+    "core_signals": [
+      "transaction_velocity",
+      "total_amount"
+    ],
+    "supporting_signals": [
+      "avg_amount",
+      "amount_std",
+      "hour_of_day",
+      "day_of_week",
+      "unique_cardholders",
+      "category_diversity",
+      "temporal_concentration"
+    ],
+    "excluded_signals": []
+  }
+}

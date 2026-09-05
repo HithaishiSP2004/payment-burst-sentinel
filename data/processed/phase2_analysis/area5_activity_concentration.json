@@ -1,0 +1,23 @@
+{
+  "fraud_window_activity": {
+    "fraud_windows_count": 7444,
+    "clean_windows_count": 1113169,
+    "fraud_window_avg_tx": 1.25,
+    "clean_window_avg_tx": 1.16,
+    "fraud_window_avg_cards": 1.25,
+    "clean_window_avg_cards": 1.16
+  },
+  "activity_vs_fraud": {
+    "low_activity_fraud_pct": 0.609,
+    "high_activity_fraud_pct": 1.01,
+    "ratio": 1.66
+  },
+  "cardholder_concentration": {
+    "fraud_unique_cards_per_tx": 0.998,
+    "clean_unique_cards_per_tx": 1.0
+  },
+  "conclusion": {
+    "concentration_is_signal": true,
+    "reason": "High-activity periods show elevated fraud rate"
+  }
+}

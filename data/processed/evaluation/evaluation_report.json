@@ -1,0 +1,113 @@
+{
+  "evaluation_setup": {
+    "train_transactions": 1296675,
+    "test_transactions": 555719,
+    "train_end": "2020-06-21 12:13:37",
+    "test_start": "2020-06-21 12:14:25",
+    "test_end": "2020-12-31 23:59:34",
+    "frozen_elevated_threshold": 4.0,
+    "frozen_high_threshold": 5.0
+  },
+  "dataset_coverage": {
+    "eligible_merchant_days": 126574,
+    "merchants_covered": 693,
+    "status_distribution": {
+      "sufficient_history": 126574
+    }
+  },
+  "primary_results": {
+    "overall_fraud_prevalence": {
+      "fraud_containing_days": 2099,
+      "fraud_containing_rate_pct": 1.658,
+      "fraud_tx_count": 2145,
+      "fraud_tx_rate_pct": 0.386
+    },
+    "flagged_vs_normal": {
+      "flagged_count": 16090,
+      "normal_count": 110484,
+      "flagged_fraud_rate_pct": 6.644,
+      "normal_fraud_rate_pct": 0.932,
+      "enrichment_vs_overall": 4.01,
+      "enrichment_vs_normal": 7.13
+    },
+    "risk_levels": {
+      "normal": {
+        "count": 110484,
+        "fraud_days": 1030,
+        "fraud_rate": 0.932,
+        "fraud_tx": 1048,
+        "enrichment": 0.56
+      },
+      "elevated": {
+        "count": 4977,
+        "fraud_days": 152,
+        "fraud_rate": 3.054,
+        "fraud_tx": 156,
+        "enrichment": 1.84
+      },
+      "high": {
+        "count": 11113,
+        "fraud_days": 917,
+        "fraud_rate": 8.252,
+        "fraud_tx": 941,
+        "enrichment": 4.98
+      }
+    },
+    "anomaly_types": {
+      "normal": {
+        "count": 110484,
+        "fraud_days": 1030,
+        "fraud_rate": 0.932,
+        "enrichment": 0.56
+      },
+      "velocity_anomaly": {
+        "count": 4254,
+        "fraud_days": 46,
+        "fraud_rate": 1.081,
+        "enrichment": 0.65
+      },
+      "amount_anomaly": {
+        "count": 8550,
+        "fraud_days": 857,
+        "fraud_rate": 10.023,
+        "enrichment": 6.04
+      },
+      "combined_anomaly": {
+        "count": 3286,
+        "fraud_days": 166,
+        "fraud_rate": 5.052,
+        "enrichment": 3.05
+      }
+    },
+    "alert_volume": {
+      "total_flagged": 16090,
+      "pct_flagged": 12.71
+    }
+  },
+  "amount_dominance": {
+    "amount_only_pct_of_flags": 53.1,
+    "velocity_only_pct_of_flags": 26.4,
+    "combined_pct_of_flags": 20.4
+  },
+  "proxy_classification": {
+    "tp": 1069,
+    "fp": 15021,
+    "fn": 1030,
+    "tn": 109454,
+    "proxy_precision_pct": 6.64,
+    "proxy_recall_pct": 50.93,
+    "proxy_f1_pct": 11.75
+  },
+  "baseline_comparison": {
+    "random_enrichment": 4.01,
+    "volume_only": {
+      "method": "Top-16090 highest daily tx count",
+      "flagged_count": 16945,
+      "fraud_containing_rate_flagged": 2.726,
+      "fraud_containing_rate_normal": 1.493,
+      "enrichment_vs_normal": 1.83
+    }
+  },
+  "verdict": "OPTION A: Meaningful enrichment",
+  "verdict_detail": "The behavioral anomaly detector provides meaningful fraud enrichment on unseen data. Flagged merchant-days contain fraud at a meaningfully higher rate than normal or random baselines."
+}
