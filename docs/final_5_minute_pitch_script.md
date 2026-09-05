@@ -12,7 +12,7 @@
 
 "In payments, fraud risk isn't always visible in a single transaction. 
 
-A merchant can look completely normal transaction by transaction, but its overall payment behavior can suddenly shift. Traditional fraud engines often rely on global volume thresholds. But in reality, what is 'normal' varies wildly per merchant. Fifty thousand rupees daily might be standard for a supermarket, but extraordinary for a local bakery. 
+A merchant can look completely normal transaction by transaction, but its overall payment behavior can suddenly shift. A static global volume threshold can miss that context, because what is 'normal' varies wildly per merchant. Fifty thousand rupees daily might be standard for a supermarket, but extraordinary for a local bakery. 
 
 When we analyzed historical merchant transaction data, aggregate transaction volume alone was poorly correlated with fraud. 
 
@@ -33,13 +33,13 @@ If a merchant's burst exceeds four MADs above baseline, we classify it as Elevat
 
 ---
 
-### [0:10 – 1:55] Investigation Evidence Workspace
+### [1:10 – 1:55] Investigation Evidence Workspace
 *(Screen: Navigate to Investigations, filter by High Risk, click 'Kovacek Ltd' 2020-11-27)*
 
 "Here in the Investigations Index, an analyst can immediately prioritize severe anomalies. Let's open a real deviation from our held-out test set: Kovacek Ltd on November 27th, 2020.
 
 Notice what happens before any AI is touched. The Evidence Workspace lays out deterministic facts: 
-Kovacek Ltd typically processes about ten rupees and seventy-five paise per day. On this day, payment volume surged to nineteen thousand, three hundred and sixty-four rupees. That's a nineteen-hundred-and-thirty-five MAD deviation.
+Kovacek Ltd typically processes about ten rupees and seventy-five paise per day. On this day, payment volume surged to nineteen thousand, three hundred and sixty-four rupees. That's a deviation of more than nineteen hundred MADs from its baseline.
 
 Yet its transaction count remained at just one transaction. The system immediately isolates that this was a high-value amount burst, not a volume surge. Every statement is grounded in frozen, verifiable baseline data."
 
@@ -78,7 +78,7 @@ Using explicit scenario assumptions—for example, fifteen minutes per review at
 
 "We are not claiming to replace Razorpay's production fraud engines or real-time transaction firewalls. 
 
-Payment Burst Sentinel provides an additive merchant-level behavioral lens. It catches the slow-burn merchants and sudden payment-value bursts that transaction-level rules overlook, while respecting the operational realities and review costs that risk teams face every day."
+Instead, Payment Burst Sentinel adds a merchant-level behavioral lens alongside transaction-level risk controls, helping analysts investigate sudden payment-value bursts and unusual merchant behavior."
 
 ---
 
