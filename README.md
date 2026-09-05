@@ -334,7 +334,7 @@ payment-burst-sentinel/
 │   └── tests/                   # 181 Vitest & React Testing Library tests
 ├── data/
 │   └── processed/               # [FROZEN] Parquet & JSON analytical outputs
-├── docs/                        # Architectural documentation, golden path & pitch script
+├── docs/                        # Architectural specifications & system boundaries
 ├── tests/                       # 78 Pytest backend integration tests
 ├── .github/workflows/ci.yml     # Automated CI pipeline
 ├── requirements.txt             # Python backend & test dependencies
@@ -359,10 +359,10 @@ payment-burst-sentinel/
 | **17** | Product UI Precision, Responsive Layout Stabilization, Architecture Flow Polish. | ✅ Complete |
 | **18** | Investigation Evidence Workspace (8-section forensic investigation deep-dive). | ✅ Complete |
 | **19** | Detection Evaluation Workspace (8-section proxy metric hardening, cross-tabulation). | ✅ Complete |
-| **Final** | Submission Audit & Lockdown (Truth audit, metric consistency, pitch script, verified public repo lock). | ✅ Complete |
+| **Final** | Submission Audit & Lockdown (Truth audit, metric consistency, verified public repo lock). | ✅ Complete |
 
 ---
 
 ## 16. Submission Note
 
-Payment Burst Sentinel was engineered for the **Razorpay AI Buildathon (Track 02: AI Risk Manager)** as a defensive, transparent financial risk intelligence platform. The complete submission showcase consists of the public repository, the 5-minute pitch video (`docs/final_5_minute_pitch_script.md`), and the verified subsystem architecture. Rather than making unsubstantiated claims of autonomous AI fraud prevention, it demonstrates how deterministic statistical baselines and grounded AI explanation work together to empower human risk analysts to make fast, informed decisions.
+Payment Burst Sentinel was engineered for the **Razorpay AI Buildathon (Track 02: AI Risk Manager)** as a defensive, transparent financial risk intelligence platform. Rather than making unsubstantiated claims of autonomous AI fraud prevention, it demonstrates how deterministic statistical baselines and grounded AI explanation work together to empower human risk analysts to make fast, informed decisions.
