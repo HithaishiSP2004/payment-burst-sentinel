@@ -62,7 +62,7 @@ All evaluation metrics are computed on a temporal held-out test split (126,574 m
 | **Enrichment vs. Overall** | **4.01×** | Flagged merchant-days have a 4.01× higher fraud concentration than the overall merchant-day population (6.644% vs. 1.658%). |
 | **Proxy-Positive Recall** | **50.93%** | Percentage of fraud-containing merchant-days captured by behavioral flags (1,069 / 2,099). |
 | **Alert Efficiency** | **15.05 alerts / positive day** | Total alerts generated per fraud-containing day captured (16,090 alerts / 1,069 captured days). |
-| **Behavioral vs. Volume Baseline** | **7.13× vs. 1.83×** (3.9× ratio) | Behavioral deviation achieves 7.13× fraud enrichment compared to 1.83× for naive high-volume thresholds. |
+| **Behavioral vs. Volume Baseline** | **7.13× vs. 1.83×** (3.9× ratio) | Behavioral enrichment: 7.13× vs. 1.83× for the naive volume-only baseline — a 3.9× enrichment ratio. |
 
 > **Important Methodology Distinction:**  
 > These are **merchant-day proxy metrics**. Payment Burst Sentinel is a behavioral anomaly intelligence system, **not** a transaction-level fraud classifier. Transaction fraud tags serve as a proxy ground truth to validate behavioral burst correlation.
