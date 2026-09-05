@@ -12,6 +12,7 @@ import { InvestigationsScreen } from "@/components/screens/InvestigationsScreen"
 import { MerchantRhythmScreen } from "@/components/screens/MerchantRhythmScreen";
 import { EvaluationScreen } from "@/components/screens/EvaluationScreen";
 import { IntegrationScreen } from "@/components/screens/IntegrationScreen";
+import { PitchTourBar } from "@/components/shared/PitchTourBar";
 
 /* ═══════════════════════════════════════════════════════════════
    APPLICATION ROOT — Navigation, global state, screen routing
@@ -204,6 +205,14 @@ export default function Home() {
           <IntegrationScreen overview={overview} />
         )}
       </main>
+
+      <PitchTourBar
+        currentPage={currentPage}
+        onNavigate={navigateTo}
+        onSelectInvestigation={setSelectedInvestigation}
+        onSetRiskFilter={setRiskFilter}
+        onSelectMerchant={openMerchant}
+      />
     </div>
   );
 }
