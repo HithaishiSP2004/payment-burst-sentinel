@@ -35,9 +35,9 @@ This document tracks the submission-grade readiness verification for Payment Bur
 - [x] **Verified Metrics**:
   - [x] 693 merchants monitored
   - [x] 337,151 total merchant-days analyzed
-  - [x] 42,665 total flagged events (12,825 elevated, 29,840 high)
-  - [x] 7.13× fraud-containing day enrichment vs normal
-  - [x] 4.01× fraud-containing day enrichment vs overall
+  - [x] 42,665 total flagged merchant-days (12,825 elevated, 29,840 high)
+  - [x] 7.13× fraud-containing merchant-day enrichment vs normal
+  - [x] 4.01× fraud-containing merchant-day enrichment vs overall
   - [x] 50.93% Proxy-Positive Coverage (1,069 TP / 2,099 proxy-positive days)
   - [x] 15.05 alerts per proxy-positive day
 - [x] **Zero Data Leakage**: Temporal train/test split with frozen baseline windows; no test data used for tuning.
@@ -58,11 +58,11 @@ This document tracks the submission-grade readiness verification for Payment Bur
   - Anti-fraud certainty check (rejects "confirmed fraud", "fraudster")
   - Anti-autonomous action check (rejects "block payment", "freeze account")
   - Strict length and count bounds
-- [x] **Zero-Downtime Fallback**:
+- [x] **Graceful AI Fallback**:
   - Operates cleanly without `GEMINI_API_KEY`.
   - Displays graceful "AI Not Configured" state in UI.
   - Core detection and deterministic evidence remain 100% accessible.
-- [x] **Verified Model Identifier**: Defaults to supported `gemini-2.5-flash` with `GEMINI_MODEL` environment variable override.
+- [x] **Verified Model Identifier**: Configurable Flash cascade (`gemini-3.8-flash,gemini-3.7-flash,gemini-3.5-flash,gemini-3.5-flash-lite,gemini-2.5-flash`) via `GEMINI_MODEL`.
 
 ---
 
@@ -83,7 +83,7 @@ This document tracks the submission-grade readiness verification for Payment Bur
 - [x] **Frontend Tests**: 181 / 181 passing across 10 test suites in Vitest (`npm test`).
 - [x] **Total Automated Test Count**: 259 / 259 passing.
 - [x] **Production Build**: Clean compilation in Next.js 16.3.3 Turbopack (`npm run build`).
-- [x] **CI/CD Pipeline**: `.github/workflows/ci.yml` runs full backend test suite (`pytest tests/ -v`) alongside frontend tests and build.
+- [x] **Continuous Integration (CI)**: `.github/workflows/ci.yml` runs full backend test suite (`pytest tests/ -v`) alongside frontend tests and build.
 - [x] **Type Safety**: Full TypeScript 5 coverage with zero compile errors.
 
 ---

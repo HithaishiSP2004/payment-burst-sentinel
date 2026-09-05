@@ -12,7 +12,7 @@ Built for the **Razorpay AI Buildathon — Track 02: AI Risk Manager**.
 > ### **"Deterministic systems detect. Gemini explains. Humans decide."**
 
 Payment Burst Sentinel enforces a strict, defense-only boundary for payment platforms:
-- **Detection is 100% deterministic**: Frozen mathematical algorithms compute rolling historical merchant baselines and flag behavioral statistical anomalies.
+- **The detection pipeline is fully deterministic**: Frozen statistical algorithms compute rolling historical merchant baselines and flag behavioral anomalies.
 - **AI is strictly advisory**: Google Gemini receives structured, deterministic evidence to explain anomalies, synthesize changes, and suggest defensive investigation questions.
 - **Humans make the final decision**: The platform never autonomously blocks payments, freezes accounts, or cancels transactions.
 
@@ -58,11 +58,11 @@ All evaluation metrics are computed on a temporal held-out test split (126,574 m
 
 | Metric | Measured Value | Meaning |
 | :--- | :---: | :--- |
-| **Enrichment vs. Normal** | **7.13×** | Flagged days are 7.13× more likely to contain fraud-tagged transactions than behaviorally normal days. |
-| **Enrichment vs. Overall** | **4.01×** | Flagged days have a 4.01× higher fraud concentration than the overall merchant-day population. |
-| **Proxy-Positive Coverage** | **50.93%** | Percentage of merchant-days containing proxy fraud labels captured by behavioral flags (1,069 / 2,099). |
+| **Enrichment vs. Normal** | **7.13×** | Flagged merchant-days contain proxy fraud labels at 7.13× the rate observed on behaviorally normal merchant-days (6.644% vs. 0.932%). |
+| **Enrichment vs. Overall** | **4.01×** | Flagged merchant-days have a 4.01× higher fraud concentration than the overall merchant-day population (6.644% vs. 1.658%). |
+| **Proxy-Positive Recall** | **50.93%** | Percentage of fraud-containing merchant-days captured by behavioral flags (1,069 / 2,099). |
 | **Alert Efficiency** | **15.05 alerts / positive day** | Total alerts generated per fraud-containing day captured (16,090 alerts / 1,069 captured days). |
-| **Volume Baseline Advantage** | **3.9×** | Behavioral deviation yields 3.9× higher enrichment than naive volume-only thresholds. |
+| **Behavioral vs. Volume Baseline** | **7.13× vs. 1.83×** (3.9× ratio) | Behavioral deviation achieves 7.13× fraud enrichment compared to 1.83× for naive high-volume thresholds. |
 
 > **Important Methodology Distinction:**  
 > These are **merchant-day proxy metrics**. Payment Burst Sentinel is a behavioral anomaly intelligence system, **not** a transaction-level fraud classifier. Transaction fraud tags serve as a proxy ground truth to validate behavioral burst correlation.
@@ -95,11 +95,11 @@ Payment Burst Sentinel provides a unified, dark-mode forensic workspace consisti
 | Screen | Purpose & Capabilities |
 | :--- | :--- |
 | **1. Monitor** | Executive system overview: monitored merchant count (693), behavioral deviation breakdown, 7.13× enrichment card, and prioritized live deviation stream. |
-| **2. Investigations Index** | Filterable, paginated index of flagged events. Filter by risk level (`High`, `Elevated`) and signal type (`Amount`, `Volume`, `Combined`). |
-| **3. Investigation Workspace** | **Phase 18 Evidence Workspace**: 8-section deep dive displaying Primary Evidence, Behavioral Context, Relative Magnitude Meter, Factual Statements, Signal Map, Gemini Brief, and Human Decision Boundary. |
+| **2. Investigations Index** | Filterable, paginated index of flagged merchant-days. Filter by risk level (`High`, `Elevated`) and signal type (`Amount`, `Volume`, `Combined`). |
+| **3. Investigation Workspace** | **Evidence Workspace**: 8-section deep dive displaying Primary Evidence, Behavioral Context, Relative Magnitude Meter, Factual Statements, Signal Map, Gemini Brief, and Human Decision Boundary. |
 | **4. Merchant Rhythm** | 90-day interactive merchant behavioral timeline. Visualizes daily transactions and amounts against expected median and variability ranges. |
-| **5. Detection Evaluation** | **Phase 19 Evaluation Workspace**: 8 sections detailing held-out methodology, confusion matrix, proxy metrics, signal dominance, and interactive Scenario Cost Model (Lean / Standard / Intensive). |
-| **6. Integration Readiness** | **Phase 16/17 Ecosystem Workspace**: Provider abstraction flow, canonical event schema (`Decimal`, `UTC`), bounded idempotency, Razorpay HMAC verification boundary, and isolated demo simulator. |
+| **5. Detection Evaluation** | **Evaluation Workspace**: 8 sections detailing held-out methodology, confusion matrix, proxy metrics, signal dominance, and interactive Scenario Cost Model (Lean / Standard / Intensive). |
+| **6. Integration Readiness** | **Integration Workspace**: Provider abstraction flow, canonical event schema (`Decimal`, `UTC`), bounded idempotency, Razorpay HMAC verification boundary, and isolated demo simulator. |
 
 ---
 
@@ -108,7 +108,7 @@ Payment Burst Sentinel provides a unified, dark-mode forensic workspace consisti
 The AI layer transforms raw mathematical deviations into structured, understandable investigation intelligence.
 
 ```
-Deterministic Evidence (E1–E6) → Prompt Injection Shield → Gemini 2.5 Flash → 7 Guardrails → Cached Brief
+Deterministic Evidence (E1–E6) → Prompt Injection Shield → Google Gemini (Flash Cascade) → 7 Guardrails → Cached Brief
 ```
 
 ### What Gemini Does:
@@ -124,8 +124,8 @@ Deterministic Evidence (E1–E6) → Prompt Injection Shield → Gemini 2.5 Flas
 - ❌ Does **not** autonomously block payments, freeze accounts, or decline transactions.
 - ❌ Does **not** access external tools or query live production databases.
 
-### Zero-Downtime Fallback:
-If `GEMINI_API_KEY` is absent, `AI_ENABLED=false`, or external API calls fail, the backend engages `FallbackProvider`. The frontend displays an honest *"AI Not Configured"* notice while **100% of deterministic evidence and factual statements remain available**.
+### Graceful AI Fallback:
+If `GEMINI_API_KEY` is absent, `AI_ENABLED=false`, or external API calls fail, the backend engages `FallbackProvider`. The frontend displays an honest *"AI Not Configured"* notice while **all deterministic evidence and factual statements remain fully available**.
 
 ---
 
@@ -166,7 +166,7 @@ Payment Burst Sentinel is architected for integration into payment platforms lik
  │     FASTAPI BACKEND     │◄────►│  GEMINI ADVISORY LAYER (Phase 15)        │
  │       (Port 8000)       │      │  • Evidence Builder (E1–E6)              │
  └────────────┬────────────┘      │  • 7 Safety Guardrails & Injection Shield│
-              │                   │  • Zero-Downtime Fallback Provider       │
+              │                   │  • Graceful Fallback Provider            │
               │                   └──────────────────────────────────────────┘
               │                   ┌──────────────────────────────────────────┐
               ├──────────────────►│  INTEGRATION READINESS (Phase 16)        │
@@ -248,7 +248,7 @@ Configure via `.env` in the project root:
 | Variable | Required | Default | Purpose |
 | :--- | :---: | :---: | :--- |
 | `GEMINI_API_KEY` | Optional | *(none)* | Google AI Studio API key for Gemini advisory briefs. Application functions fully without it. |
-| `GEMINI_MODEL` | Optional | `gemini-3.5-flash` | Primary model or comma-separated fallback cascade (e.g. `gemini-3.5-flash,gemini-3.5-flash-lite,gemini-2.5-flash`). Automatically falls back to high-quota (500 RPD) flash-lite models on rate limits. |
+| `GEMINI_MODEL` | Optional | `gemini-3.8-flash,gemini-3.7-flash,gemini-3.5-flash,gemini-3.5-flash-lite,gemini-2.5-flash` | Configurable primary model or priority fallback cascade. Automatically cascades to next model on rate limits or service unavailability. |
 | `AI_ENABLED` | Optional | `true` | Set to `false` to disable AI endpoints completely. |
 | `ALLOWED_ORIGINS` | Optional | `*` | Comma-separated list of allowed CORS origins. Unset allows all origins for local development. |
 | `INTEGRATION_MODE` | Optional | `dataset` | Data mode: `dataset` (default), `demo`, `sandbox`. |
@@ -280,7 +280,7 @@ npm run build
 - **Total Automated Tests**: **259 / 259 passing**
 - **Production Build**: Next.js 16.3.3 Turbopack build succeeds with zero errors
 
-### CI/CD Pipeline:
+### Continuous Integration (CI):
 GitHub Actions workflow (`.github/workflows/ci.yml`) runs on push and PR:
 - **Frontend Job**: `npm ci` → `npm test` → `npm run test:coverage` → `npm run build`
 - **Backend Job**: `pip install -r requirements.txt` → `python -m pytest tests/ -v` → import validation
@@ -352,17 +352,17 @@ payment-burst-sentinel/
 | **4** | Dual-Signal Behavioral Anomaly Detection Engine (Velocity + Amount; Elevated ≥4, High ≥5). | ✅ Complete (Locked) |
 | **5** | Held-Out Temporal Evaluation Methodology (Enrichment metrics, zero test tuning). | ✅ Complete (Locked) |
 | **6–9** | FastAPI Backend, Next.js Foundation, Visual Refinement, Component Architecture. | ✅ Complete |
-| **10–13**| Automated Testing, CI/CD Pipeline, Environment Hardening, Public Deployment Readiness. | ✅ Complete |
+| **10–13**| Automated Testing, Continuous Integration, Environment Hardening, and Production Configuration. | ✅ Complete |
 | **14** | False-Positive Cost Engine, Proxy Confusion Matrix, Investigation Workload Model. | ✅ Complete (Locked) |
 | **15** | Gemini AI Investigation Intelligence Layer (Structured output, E1–E6, 7 safety guardrails). | ✅ Complete |
 | **16** | Razorpay Ecosystem Integration Readiness (Canonical schema, HMAC boundary, demo ingestion). | ✅ Complete (Locked) |
 | **17** | Product UI Precision, Responsive Layout Stabilization, Architecture Flow Polish. | ✅ Complete |
 | **18** | Investigation Evidence Workspace (8-section forensic investigation deep-dive). | ✅ Complete |
 | **19** | Detection Evaluation Workspace (8-section proxy metric hardening, cross-tabulation). | ✅ Complete |
-| **FW 1.1**| Submission-Grade Hardening (CI test integration, model sync, reviewer smoke tests). | ✅ Complete |
+| **Final** | Submission Audit & Lockdown (Truth audit, metric consistency, pitch script, verified public repo lock). | ✅ Complete |
 
 ---
 
 ## 16. Submission Note
 
-Payment Burst Sentinel was engineered for the **Razorpay AI Buildathon (Track 02: AI Risk Manager)** as a defensive, transparent financial risk intelligence platform. Rather than making unsubstantiated claims of autonomous AI fraud prevention, it demonstrates how deterministic statistical baselines and grounded AI explanation can work together to empower human risk analysts to make fast, informed decisions.
+Payment Burst Sentinel was engineered for the **Razorpay AI Buildathon (Track 02: AI Risk Manager)** as a defensive, transparent financial risk intelligence platform. The complete submission showcase consists of the public repository, the 5-minute pitch video (`docs/final_5_minute_pitch_script.md`), and the verified subsystem architecture. Rather than making unsubstantiated claims of autonomous AI fraud prevention, it demonstrates how deterministic statistical baselines and grounded AI explanation work together to empower human risk analysts to make fast, informed decisions.

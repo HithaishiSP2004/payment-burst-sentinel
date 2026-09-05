@@ -28,11 +28,11 @@ This document provides an exact, reproducible walkthrough designed for a 5-minut
 ### Step 1: System Overview (Monitor Screen)
 - **Navigation**: Home screen (`/` or click `Monitor` in sidebar).
 - **What Evaluator Sees**:
-  - Hero statistics: **693** Merchants Monitored, **337,151** Merchant-Days Analyzed, **42,665** Total Flagged Events.
-  - **7.13× Enrichment Card**: Explaining that flagged days are 7.13× more likely to contain fraud-tagged transactions than behaviorally normal days.
+  - Hero statistics: **693** Merchants Monitored, **337,151** Merchant-Days Analyzed, **42,665** Total Flagged Merchant-Days.
+  - **7.13× Enrichment Card**: Explaining that flagged merchant-days contain proxy fraud labels at 7.13× the rate observed on behaviorally normal merchant-days (6.644% vs. 0.932%).
   - **Live Behavioral Stream**: Monitored merchants sorted by severity.
 - **Presenter Script**:
-  > *"Payment Burst Sentinel is a defensive risk intelligence system built for Razorpay Track 02. Traditional fraud engines rely on static volume thresholds, but what is normal varies wildly per merchant. We model each merchant against their own rolling 30-day behavioral baseline using median and median absolute deviation. Our held-out evaluation demonstrates a 7.13× fraud concentration in flagged days compared to normal days."*
+  > *"Payment Burst Sentinel is a defensive risk intelligence system built for Razorpay Track 02. Traditional fraud engines rely on static volume thresholds, but what is normal varies wildly per merchant. We model each merchant against their own rolling 30-day behavioral baseline using median and median absolute deviation. Our held-out evaluation demonstrates a 7.13× fraud concentration in flagged merchant-days compared to normal merchant-days."*
 
 ---
 
@@ -76,7 +76,7 @@ This document provides an exact, reproducible walkthrough designed for a 5-minut
   - **If `GEMINI_API_KEY` is present**: Generates a structured brief with Headline, Summary, What Changed (with stable references `E1`–`E6`), Key Evidence, Investigate Next, What Remains Unknown, and Safety Note.
   - **If `GEMINI_API_KEY` is absent**: Gracefully displays the `AI NOT CONFIGURED` fallback panel explaining that deterministic evidence remains 100% available.
 - **Presenter Script**:
-  > *"Gemini is strictly an explainer. It receives structured evidence items E1 through E6 behind 7 deterministic safety guardrails. It cannot declare confirmed fraud, cannot alter detection thresholds, and cannot autonomously block accounts. And if the AI service is offline or unconfigured, the system degrades gracefully with zero downtime."*
+  > *"Gemini is strictly an explainer. It receives structured evidence items E1 through E6 behind 7 deterministic safety guardrails. It cannot declare confirmed fraud, cannot alter detection thresholds, and cannot autonomously block accounts. And if the AI service is offline or unconfigured, the system degrades gracefully via AI availability fallback."*
 
 ---
 
