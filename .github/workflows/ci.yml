@@ -74,5 +74,5 @@ jobs:
       - name: Validate backend imports
         run: |
           python -c "from backend.api import app; print(f'FastAPI app loaded: {app.title}')"
-          python -c "from backend.anomaly_detector import AnomalyDetector; print('AnomalyDetector imported')"
-          python -c "from backend.evaluation import evaluate_detection; print('Evaluation imported')"
+          python -c "from backend.anomaly_detector import compute_deviation_scores, classify_anomalies; print('Anomaly detector functions imported')"
+          python -c "from backend.evaluation import compute_enrichment, volume_only_baseline; print('Evaluation functions imported')"
